@@ -51,7 +51,8 @@ This is a course project with no deployment. The practical takeaway is a method 
 - Default Korean sentiment tools treat chants like 워어어 as noise, so I built a custom dictionary with chant-pattern boosts. It is my own and small, and I have not checked it against human ratings.
 - The result is an association, not a cause. R-squared is 6.2%, and the data cannot separate "better hitters get more energetic songs" from "energetic songs help hitters".
 - Hand-coding which songs are reused or inherited was slow, and the coding rules are written up in my course paper (not published here).
-- TODO (Kelly): add one more lesson from the scraping or modeling work.
+- Linking a personal interest to formal research. I started from a question I had as a fan, whether fight songs affect hitters, and turned it into testable hypotheses with real data. Doing that showed me how much of the work is shaping a vague curiosity into something measurable.
+- NLP is not only for large language models. Sentiment scoring, tokenization and embeddings also work on a domain as different as baseball cheering, as long as the text is turned into features a statistical model can use.
 
 ## Run it
 ```bash
