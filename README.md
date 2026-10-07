@@ -14,7 +14,7 @@ A course project (KAIST HSS510, NLP for Humanities and Social Sciences, Spring 2
 Fight songs are played while a batter stands at the plate, and each batter has his own. Research on cheering culture is mostly sociological, and research on crowds and performance looks at attendance or home advantage. I wanted to treat the lyrics as a measurable variable and ask whether more emotional lyrics go with better batting.
 
 ## My role
-I designed the question and the seven hypotheses, collected the data, hand-collected and coded the fight song lyrics (including whether a song is reused or inherited), built the sentiment dictionary, ran the statistics, and wrote the paper. I used Claude Code as a coding assistant.
+I designed the question and the seven hypotheses, and I collected the data. I hand-collected and coded the fight song lyrics (including whether a song is reused or inherited). I built the sentiment dictionary, ran the statistics and wrote the paper. I used Claude Code as a coding assistant.
 
 ## Data
 - Game schedules, attendance and results for 2022 to 2024, scraped from the KBO website with Selenium and BeautifulSoup. More than 54,000 batter-game records, one per player per game, after removing rain-cancelled games.
@@ -36,9 +36,9 @@ Python: Selenium, BeautifulSoup, pandas, Kiwi (Korean morphology), KoBERT and se
 The notebook is `notebooks/KBO_statistics.ipynb`.
 
 ## Key insights
-- Sentiment score and batting average are positively correlated (Pearson r = 0.249, Spearman rho = 0.305, both p < .001). In a simple regression, a one-standard-deviation higher score goes with about +0.025 batting average, and it explains 6.2% of the variance. The effect stays at +0.024 after controlling for crowd size and home-game ratio.
+- Sentiment score and batting average are positively correlated (Pearson r = 0.249, Spearman rho = 0.305, both p < .001). In a simple regression, a one-standard-deviation higher score goes with about +0.025 batting average. It explains 6.2% of the variance. The effect stays at +0.024 after controlling for crowd size and home-game ratio.
 - No evidence that the effect is stronger at home games (interaction p = 0.403).
-- Crowd size: the lyric effect stays, and low-attendance games have lower averages (beta = -0.022, p = 0.021), but the sentiment-by-crowd interaction is not significant (p = 0.998).
+- Crowd size: the lyric effect stays. Low-attendance games have lower averages (beta = -0.022, p = 0.021). But the sentiment-by-crowd interaction is not significant (p = 0.998).
 - Shared songs (reused or inherited) show no difference in batting performance.
 - Team lyric styles cluster: Hanwha, NC, Doosan and SSG look alike, KIA and Samsung share expressions, and KT sounds the most distinct.
 
@@ -51,7 +51,7 @@ This is a course project with no deployment. The practical takeaway is a method 
 - Default Korean sentiment tools treat chants like 워어어 as noise, so I built a custom dictionary with chant-pattern boosts. It is my own and small, and I have not checked it against human ratings.
 - The result is an association, not a cause. R-squared is 6.2%, and the data cannot separate "better hitters get more energetic songs" from "energetic songs help hitters".
 - Hand-coding which songs are reused or inherited was slow, and the coding rules are written up in my course paper (not published here).
-- Linking a personal interest to formal research. I started from a question I had as a fan, whether fight songs affect hitters, and turned it into testable hypotheses with real data. Doing that showed me how much of the work is shaping a vague curiosity into something measurable.
+- Linking a personal interest to formal research was a main lesson. I started from a question I had as a fan, whether fight songs affect hitters, and turned it into testable hypotheses with real data. Doing that showed me how much of the work is shaping a vague curiosity into something measurable.
 - NLP is not only for large language models. Sentiment scoring, tokenization and embeddings also work on a domain as different as baseball cheering, as long as the text is turned into features a statistical model can use.
 
 ## Run it
